@@ -1,12 +1,15 @@
-const heading = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", { id: "h1" }, "I'm a H1 tag"),
-    React.createElement("h2", { id: "h2" }, "I'm a H2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", { id: "h1" }, "I'm a child2 H1 tag"),
-    React.createElement("h2", { id: "h2" }, "I'm a child2 H2 tag"),
-  ]),
-]);
+import React from "react";
+import ReactDOM from "react-dom/client";
+import logo from "./images/clear.png";
+import user from "./images/user.png";
+
+const HeaderComponent = () => (
+  <div id="container">
+    <img src={logo} width="100" height="100"></img>
+    <input type="text" placeholder="Search" spellcheck="false" />
+    <img src={user} width="100" height="100"></img>
+  </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+root.render(<HeaderComponent />);
