@@ -18,3 +18,18 @@
 - Https support
 - Tree Shaking - remove unused code
 - Different dev and prod build
+
+# My Food App
+
+- Header
+- - logo
+- - nav links
+- Body
+- - search
+- - restaurant container
+- - restaurant card
+- Footer
+- - contact
+- - copyright
+- - Address
+- - links
