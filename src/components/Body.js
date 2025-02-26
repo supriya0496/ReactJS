@@ -1,9 +1,13 @@
 import { RestaurantCard } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState();
+  const [searchText, setSearchText] = useState("");
+  console.log("Body rendered");
   useEffect(() => {
     fetchData();
   }, []);
@@ -14,7 +18,8 @@ const Body = () => {
 
     const json = await data.json();
     const reqData = json.data.cards.filter((element) => {
-      return element.card.card.hasOwnProperty("info");
+      // Optional chaining
+      return element?.card?.card?.hasOwnProperty("info");
     });
 
     // const finalData = reqData.map((input) => {
@@ -22,14 +27,38 @@ const Body = () => {
     // });
 
     setListOfRestaurant(reqData);
+    setFilteredRestaurant(reqData);
   };
-
-  if (listOfRestaurant.length === 0) {
-    return <Shimmer />;
-  }
-  return (
+  // conitional rendering
+  return listOfRestaurant.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="search-btn"
+            onClick={() => {
+              console.log(searchText);
+              const filterRestaurant = listOfRestaurant.filter((res) =>
+                res.card.card.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurant(filterRestaurant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -43,13 +72,14 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-container">
-        {listOfRestaurant.map((restaurant) => {
-          console.log(restaurant);
+        {filteredRestaurant.map((restaurant) => {
           return (
-            <RestaurantCard
+            <Link
               key={restaurant.card.card.info.id}
-              resData={restaurant}
-            />
+              to={"/restaurants/" + restaurant.card.card.info.id}
+            >
+              <RestaurantCard resData={restaurant} />
+            </Link>
           );
         })}
       </div>

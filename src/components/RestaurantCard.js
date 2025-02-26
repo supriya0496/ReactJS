@@ -6,7 +6,8 @@ const styleCard = {
 export const RestaurantCard = (props) => {
   const { resData } = props;
   // didnt understand 46
-  const { name, cuisines, avgRating, costForTwo } = resData?.card.card.info;
+  const { name, cuisines, avgRating, costForTwo, sla } =
+    resData?.card.card.info;
   return (
     <div className="restaurant-card" style={styleCard}>
       <img
@@ -19,7 +20,7 @@ export const RestaurantCard = (props) => {
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} stars</h4>
       <h4>{costForTwo}</h4>
-      <h4>{resData.card.card.info.sla.deliveryTime} minutes </h4>
+      <h4>{sla.slaString} minutes </h4>
     </div>
   );
 };
