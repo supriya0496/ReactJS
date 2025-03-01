@@ -70,3 +70,8 @@
 .filter {
   display: flex;
 }
+
+.user {
+  padding: 5px;
+  border: 1px solid black;
+}

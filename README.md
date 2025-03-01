@@ -33,3 +33,22 @@
 - - copyright
 - - Address
 - - links
+
+# Two types of Routing
+
+- Client side routing
+- Server Side routing
+
+# React-lifecycle-methods-diagram
+
+- Parent Constructor
+- Parent Render
+- First Child Constructor
+- First Child Render
+- Second Child Constructor
+- Second Child Render
+  -- Child render is batched - which means it will manipulate the virtual DOM.
+  -- Here the DOM updates in a single batch before executing below lines
+- First Child Component did mount
+- Second Child Component did mount
+- Parent Component did mount
