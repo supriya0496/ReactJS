@@ -52,3 +52,13 @@
 - First Child Component did mount
 - Second Child Component did mount
 - Parent Component did mount
+
+# UI Framework
+
+- SASS, SCSS
+- Styled-components - used in many companies
+- Material UI
+- Bootstrap
+- Chakra UI
+- ANT design
+- Tail Wind

@@ -19,12 +19,16 @@
   },
   "homepage": "https://github.com/supriya0496/ReactJS#readme",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "autoprefixer": "^10.4.20",
     "parcel": "^2.13.3",
-    "process": "^0.11.10"
+    "postcss": "^8.5.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.29.0"
   },
   "browserslist": [
